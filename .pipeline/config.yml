@@ -43,7 +43,7 @@ stages:
 
 Release:
   cloudFoundryDeploy: true
-  cfApiEndpoint: "https://api.cf.eu10.hana.ondemand.com"
+  cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
   cfOrg: "DEV"
   cfSpace: "dev"
   cfAppName: "abapp"
