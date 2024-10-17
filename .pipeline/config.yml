@@ -40,3 +40,12 @@ stages:
 #        appName: 'myAppName'
 #        manifest: 'manifest.yml'
 #        credentialsId: 'myDeploymentCredentialsId'
+
+Release:
+  cloudFoundryDeploy: true
+  cfApiEndpoint: "https://api.cf.eu10.hana.ondemand.com"
+  cfOrg: "DEV"
+  cfSpace: "dev"
+  cfAppName: "abapp"
+  cfCredentialsId: "deploy-to-cf"
+  tmsUpload: false
