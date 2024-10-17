@@ -32,20 +32,20 @@ stages:
 #      - alias: 'mySystemAlias'
 #        credentialId: 'mySystemCredentialsId'
 
-#  Release:
-#    cfTargets:
-#      - org: 'myOrg'
-#        space: 'mySpace'
-#        apiEndpoint: 'https://'
-#        appName: 'myAppName'
-#        manifest: 'manifest.yml'
-#        credentialsId: 'myDeploymentCredentialsId'
+  Release:
+    cfTargets:
+      - org: 'DEV'
+        space: 'dev'
+        apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+        appName: 'abapp'
+        manifest: 'manifest.yml'
+        credentialsId: 'deploy-to-cf'
 
-Release:
-  cloudFoundryDeploy: true
-  cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
-  cfOrg: "DEV"
-  cfSpace: "dev"
-  cfAppName: "abapp"
-  cfCredentialsId: "deploy-to-cf"
-  tmsUpload: false
+#Release:
+#  cloudFoundryDeploy: true
+#  cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
+#  cfOrg: "DEV"
+#  cfSpace: "dev"
+#  cfAppName: "abapp"
+#  cfCredentialsId: "deploy-to-cf"
+#  tmsUpload: false
