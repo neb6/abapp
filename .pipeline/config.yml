@@ -65,13 +65,13 @@ stages:
   - name: "Release"
     cloudFoundryDeploy:
       apiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
-      org: "280032fctrial"
+      org: "DEV"
       space: "dev"
       credentialsId: "deploy-to-cf"  # Este ID debe coincidir con el configurado en SAP CI & D
 
 credentials:
   - alias: "github_credentials"
-    credentialId: "pipeline2abappc"  # Referencia al webhook configurado
+    credentialId: "whc"  # Referencia al webhook configurado
 
 repositories:
   - name: "abapp"
