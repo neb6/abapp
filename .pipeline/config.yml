@@ -7,50 +7,7 @@
 #
 # This is a YAML-file. YAML is an indentation-sensitive file format. Please make sure to properly indent changes to it.
 ###
-
-
-
-### General project setup
-#general:
-#  inferBuildTool: true
-
-### Step-specific configuration
-#steps:
-#  mavenExecute:
-#    dockerImage: devxci/mbtci:1.0.14
-
-#  artifactPrepareVersion:
-#    versioningType: cloud_noTag
-
-### Stage-specific configuration
-#stages:
-#  'Confirm':
-#    manualConfirmation: false
-
-#  Integration:
-#    credentials:
-#      - alias: 'mySystemAlias'
-#        credentialId: 'mySystemCredentialsId'
-
-#  Release:
-#    cfTargets:
-#      - org: 'DEV'
-#        space: 'dev'
-#        apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
-#        appName: 'abapp'
-#        manifest: 'manifest.yml'
-#        credentialsId: 'deploy-to-cf'
-
-#Release:
-#  cloudFoundryDeploy: true
-#  cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
-#  cfOrg: "DEV"
-#  cfSpace: "dev"
-#  cfAppName: "abapp"
-#  cfCredentialsId: "deploy-to-cf"
-##  tmsUpload: false
-
-
+---
 general:
   buildTool: "mta"
 service:
@@ -70,7 +27,7 @@ stages:
   Release:
     tmsExport: false
     tmsUpload: false
-    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com/"
     cfOrg: "DEV"
     cfSpace: "dev"
     deployType: "standard"
