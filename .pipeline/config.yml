@@ -52,28 +52,35 @@
 
 
 general:
-  inferBuildTool: true
-
-steps:
-  mavenExecute:
-    dockerImage: "devxci/mbtci:0.14"
-
+  buildTool: "mta"
+service:
+  buildToolVersion: "MBTJ17N18"
+  stages:
+    Release:
+      cfCredentialsId: "deploy-to-cf"
 stages:
-  - name: "Init"
-    manualConfirmation: false
-
-  - name: "Release"
-    cloudFoundryDeploy:
-      apiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
-      org: "DEV"
-      space: "dev"
-      credentialsId: "deploy-to-cf"  # Este ID debe coincidir con el configurado en SAP CI & D
-
-credentials:
-  - alias: "github_credentials"
-    credentialId: "whc"  # Referencia al webhook configurado
-
-repositories:
-  - name: "abapp"
-    url: "https://github.com/neb6/abapp.git"
-    branch: "master"
+  Build:
+    mavenExecuteStaticCodeChecks: false
+    npmExecuteLint: false
+  Acceptance:
+    cloudFoundryDeploy: false
+    npmExecuteEndToEndTests: false
+  Malware Scan:
+    malwareExecuteScan: false
+  Release:
+    tmsExport: false
+    tmsUpload: false
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
+    cfOrg: "DEV"
+    cfSpace: "dev"
+    deployType: "standard"
+    cloudFoundryDeploy: true
+  Additional Unit Tests:
+    npmExecuteScripts: false
+  Compliance:
+    sonarExecuteScan: false
+steps:
+  cloudFoundryDeploy:
+    mtaDeployParameters: "-f --version-rule ALL"
+  artifactPrepareVersion:
+    versioningType: "cloud_noTag"
