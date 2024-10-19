@@ -29,7 +29,7 @@ stages:
     tmsUpload: false
     cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com" # Asegúrate de que coincida con Cloud Foundry
     cfOrg: "280032fctrial" # Asegúrate de que coincida en Cloud Foundry
-    cfSpace: "dev" # Asegúrate de que coincida con el nombre del espacio correcto
+    cfSpace: "dev" # Asegúrate que coincida con el nombre del espacio correcto
     deployType: "standard"
     cloudFoundryDeploy: true
   Additional Unit Tests:
