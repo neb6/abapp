@@ -1,0 +1,40 @@
+---
+applications:
+  - name: abapp-srv
+    memory: 512M
+    disk_quota: 512M
+    instances: 1
+    path: gen/srv
+    buildpack: nodejs_buildpack
+    command: npm start
+    health-check-type: http
+    health-check-http-endpoint: /health
+    env:
+      NODE_ENV: production
+      SAP_JWT_TRUST_ACL: '{"clientid":"*"}'
+    routes:
+      - route: abapp-srv.280032fctrial.cfapps.us10.hana.ondemand.com
+
+  - name: abapp-db-deployer
+    memory: 256M
+    disk_quota: 256M
+    instances: 1
+    path: gen/db
+    buildpack: nodejs_buildpack
+    no-route: true
+
+  - name: abapp
+    memory: 512M
+    disk_quota: 512M
+    instances: 1
+    path: app/ui
+    buildpack: html5_buildpack
+    env:
+      SAP_JWT_TRUST_ACL: '{"clientid":"*"}'
+    routes:
+      - route: abapp.280032fctrial.cfapps.us10.hana.ondemand.com
+
+services:
+  - name: abapp-db
+    label: hana
+    plan: hdi-shared
