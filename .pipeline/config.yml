@@ -19,12 +19,13 @@ service:
 stages:
   Build:
     mavenExecuteStaticCodeChecks: false
-    npmExecuteLint: false
+    npmExecuteLint: true
   Acceptance:
     cloudFoundryDeploy: false
     npmExecuteEndToEndTests: false
   Malware Scan:
     malwareExecuteScan: false
+    
   Release:
     tmsExport: false
     tmsUpload: false
