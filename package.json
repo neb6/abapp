@@ -6,17 +6,23 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js/hana": "^1",
     "@sap/cds": "^8",
-    "express": "^4",
-    "@cap-js/hana": "^1"
+    "express": "^4"
   },
   "devDependencies": {
     "@cap-js/cds-types": "^0.6",
     "@cap-js/sqlite": "^1",
-    "@sap/cds-dk": "^8"
+    "@sap/cds-dk": "^8",
+    "@wdio/cli": "^8.40.6",
+    "@wdio/local-runner": "^8.40.6",
+    "@wdio/mocha-framework": "^8.40.6",
+    "@wdio/spec-reporter": "^8.40.6",
+    "wdio-ui5-service": "^2.0.10"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "wdi5": "wdio run ./app/admin-books/webapp/i18n/wdi5/wdio.conf.js"
   },
   "sapux": [
     "app/admin-books",
