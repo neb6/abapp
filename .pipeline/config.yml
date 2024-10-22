@@ -10,6 +10,7 @@
 ---
 general:
   buildTool: "mta"
+  verbose: true
 service:
   buildToolVersion: "MBTJ17N18"
   stages:
